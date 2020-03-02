@@ -1,23 +1,27 @@
 import React, { Component } from "react";
-import { ScrollView, FlatList, ListItem, Text, View } from "react-native";
+import { Text, View } from "react-native";
 
 class Payments extends Component {
-    state = {
-        payments: [{ date: "01/01/2020", account: "Dole", amount: 400 }]
-    };
-
     render() {
+        const { container } = styles;
         return (
-            <View>
+            <View style={container}>
                 <View>
                     <Text>Date</Text>
-                    <Text>Account</Text>
+                </View>
+                <View>
+                    <Text>To / From</Text>
+                </View>
+                <View>
                     <Text>Amount</Text>
                 </View>
-
             </View>
         );
     }
 }
+
+const styles = {
+    container: { flexDirection: "row", justifyContent: "space-around" }
+};
 
 export default Payments;

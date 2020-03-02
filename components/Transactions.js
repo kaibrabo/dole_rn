@@ -1,15 +1,27 @@
 import React, { Component } from "react";
 import { Text, View } from "react-native";
 
-class Actions extends Component {
+class Transactions extends Component {
   render() {
+    const { container } = styles;
     return (
-      <View>
-        <Text>Pay</Text>
-        <Text>Transfer</Text>
-      </View>
+        <View style={container}>
+            <View>
+                <Text>Date</Text>
+            </View>
+            <View>
+                <Text>To / From</Text>
+            </View>
+            <View>
+                <Text>Amount</Text>
+            </View>
+        </View>
     );
   }
 }
 
-export default Actions;
+const styles = {
+  container: { flexDirection: "row", justifyContent: "space-around" }
+};
+
+export default Transactions;
