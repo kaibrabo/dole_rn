@@ -1,11 +1,25 @@
-import { createAppContainer } from "react-navigation";
-import { createStackNavigator } from "react-navigation-stack";
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import ProfileScreen from "./components/ProfileScreen";
+import PayScreen from "./components/PayScreen";
+import PaymentsScreen from "./components/PaymentsScreen";
+import TransferScreen from "./components/TransferScreen";
 
-const MainNavigator = createStackNavigator({
-    Profile: ProfileScreen
-});
+const Stack = createStackNavigator();
 
-const App = createAppContainer(MainNavigator);
+function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="cancel" component={ProfileScreen} />
+        <Stack.Screen name="Pay" component={PayScreen} />
+        <Stack.Screen name="Payments" component={PaymentsScreen} />
+        <Stack.Screen name="Transfer" component={TransferScreen} />
+
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
 
 export default App;

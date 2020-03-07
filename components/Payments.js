@@ -1,11 +1,20 @@
 import React, { Component } from "react";
-import { Text, View } from "react-native";
+import { Text, View, Button } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
-class Payments extends Component {
-    render() {
-        const { container } = styles;
-        return (
-            <View style={container}>
+function Payments() {
+    const { container, detailHeaders } = styles;
+    const navigation = useNavigation();
+
+    return (
+        <View style={container}>
+            <View>
+                <Button
+                    title="Payments"
+                    onPress={() => navigation.navigate("Payments")}
+                />
+            </View>
+            <View style={detailHeaders}>
                 <View>
                     <Text>Date</Text>
                 </View>
@@ -16,12 +25,13 @@ class Payments extends Component {
                     <Text>Amount</Text>
                 </View>
             </View>
-        );
-    }
+        </View>
+    );
 }
 
 const styles = {
-    container: { flexDirection: "row", justifyContent: "space-around" }
+    container: { flexDirection: "column", justifyContent: "space-around" },
+    detailHeaders: {flexDirection: "row", justifyContent: "space-around"}
 };
 
 export default Payments;

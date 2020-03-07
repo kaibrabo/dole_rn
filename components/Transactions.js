@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import { Text, View } from "react-native";
 
-class Transactions extends Component {
-  render() {
+function Transactions() {
     const { container } = styles;
     return (
         <View style={container}>
@@ -17,11 +16,10 @@ class Transactions extends Component {
             </View>
         </View>
     );
-  }
 }
 
 const styles = {
-  container: { flexDirection: "row", justifyContent: "space-around" }
+    container: { flexDirection: "row", justifyContent: "space-around" }
 };
 
 export default Transactions;

@@ -1,20 +1,26 @@
 import React, { Component } from "react";
-import { Text, View } from "react-native";
+import { Text, View, Button } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
-class Actions extends Component {
-    render() {
-        const { container } = styles;
-        return (
-            <View style={container}>
-                <View>
-                    <Text>Pay</Text>
-                </View>
-                <View>
-                    <Text>Transfer</Text>
-                </View>
+function Actions() {
+    const { container } = styles;
+    const navigation = useNavigation();
+    return (
+        <View style={container}>
+            <View>
+                <Button
+                    title="Pay"
+                    onPress={() => navigation.navigate("Pay")}
+                />
             </View>
-        );
-    }
+            <View>
+                <Button
+                    title="Transfer"
+                    onPress={() => navigation.navigate("Transfer")}
+                />
+            </View>
+        </View>
+    );
 }
 
 const styles = {
