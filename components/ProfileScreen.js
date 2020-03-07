@@ -3,14 +3,16 @@ import { StyleSheet, Text, View, Button } from "react-native";
 
 import Balances from "./Balances";
 import Actions from "./Actions";
-import Payments from "./Payments";
-import Transactions from "./Transactions";
+import PaymentsScreen from "./PaymentsScreen";
+import TransactionsScreen from "./TransactionsScreen";
 
 class ProfileScreen extends Component {
     // Landing Screen, overview of account & profile
     render() {
         const {
             container,
+            titles,
+            profileContainer,
             balancesContainer,
             actionsContainer,
             paymentsContainer,
@@ -19,20 +21,22 @@ class ProfileScreen extends Component {
 
         return (
             <View style={container}>
+                <View style={profileContainer}>
+
+                </View>
                 <View style={balancesContainer}>
-                    <Text>Balances</Text>
+                    <Text style={titles}>Balances</Text>
                     <Balances />
                 </View>
                 <View style={actionsContainer}>
-                    <Text>Actions</Text>
+                    <Text style={titles}>Actions</Text>
                     <Actions />
                 </View>
                 <View style={paymentsContainer}>
-                    <Payments />
+                    <PaymentsScreen />
                 </View>
                 <View style={transactionsContainer}>
-                    <Text>Transactions</Text>
-                    <Transactions />
+                    <TransactionsScreen />
                 </View>
             </View>
         );
@@ -46,9 +50,12 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: "stretch"
     },
-    titles: { alignItems: "center" },
+    titles: { textAlign: "center" },
+    profileContainer: {
+        flex: 2
+    },
     balancesContainer: {
-        flex: 1
+        flex: 1,
     },
     actionsContainer: {
         flex: 1

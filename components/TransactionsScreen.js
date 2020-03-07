@@ -1,19 +1,14 @@
 import React, { Component } from "react";
-import { Text, View, Button } from "react-native";
+import { Text, View, Button,  } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-function PaymentsScreen() {
-    const { container, detailHeaders } = styles;
-    const navigation = useNavigation();
 
+function TransactionsScreen() {
+    const { container, title, detailHeaders } = styles;
+    const navigation = useNavigation();
     return (
         <View style={container}>
-            <View>
-                <Button
-                    title="Payments"
-                    onPress={() => navigation.navigate("Payments")}
-                />
-            </View>
+            <Button title="Transactions" style={title} onPress={() => navigation.navigate("Transactions")}>Transactions</Button>
             <View style={detailHeaders}>
                 <View>
                     <Text>Date</Text>
@@ -31,7 +26,8 @@ function PaymentsScreen() {
 
 const styles = {
     container: { flexDirection: "column", justifyContent: "space-around" },
+    title: { textAlign: "center" },
     detailHeaders: {flexDirection: "row", justifyContent: "space-around"}
 };
 
-export default PaymentsScreen;
+export default TransactionsScreen;

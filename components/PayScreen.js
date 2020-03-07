@@ -18,7 +18,7 @@ const DismissKeyboard = ({ children }) => (
 );
 
 class PayScreen extends Component {
-  // Pay specific user, for specific amount (with payment-back feature), from account or bank
+    // Pay specific user, for specific amount (with payment-back feature), from account or bank
     constructor(props) {
         super(props);
         this.state = { text: "", amount: "" };
