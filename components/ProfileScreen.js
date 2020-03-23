@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { StyleSheet, Text, View, Image, Button } from "react-native";
 import * as Google from "expo-google-app-auth";
 import * as constant from "../constants";
-import * as firebase from "firebase";
+import * as firebaseDB from "firebase";
 import "@firebase/firestore";
 
 // Components
@@ -42,8 +42,8 @@ class ProfileScreen extends Component {
             appId: APP_ID
         };
         // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        const db = firebase.firestore();
+        firebaseDB.initializeApp(firebaseConfig);
+        const db = firebaseDB.firestore();
     }
 
     signIn = async () => {
@@ -68,6 +68,7 @@ class ProfileScreen extends Component {
             console.log("error: ", e);
         }
     };
+
     // Landing Screen, overview of account & profile
     render() {
         const {
