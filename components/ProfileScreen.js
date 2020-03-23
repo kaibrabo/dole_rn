@@ -1,7 +1,12 @@
+// Dependencies
 import React, { Component } from "react";
 import { StyleSheet, Text, View, Image, Button } from "react-native";
 import * as Google from "expo-google-app-auth";
-import { IOS_CLIENT_ID } from "../constants";
+import * as constant from "../constants";
+import * as firebase from "firebase";
+import "@firebase/firestore";
+
+// Components
 import Balances from "./Balances";
 import Actions from "./Actions";
 import PaymentsScreen from "./PaymentsScreen";
@@ -17,12 +22,36 @@ class ProfileScreen extends Component {
         };
     }
 
+    componentDidMount() {
+        const {
+            API_KEY,
+            AUTH_DOMAIN,
+            DB_URL,
+            STORAGE_BUCKET,
+            MESS_SEND_ID,
+            APP_ID
+        } = constant;
+
+        const firebaseConfig = {
+            apiKey: API_KEY,
+            authDomain: AUTH_DOMAIN,
+            databaseURL: DB_URL,
+            projectId: "dole-rn",
+            storageBucket: STORAGE_BUCKET,
+            messagingSenderId: MESS_SEND_ID,
+            appId: APP_ID
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+    }
+
     signIn = async () => {
         try {
             const result = await Google.logInAsync({
                 // androidClientId:
                 // "106104...-fmv....apps.googleusercontent.com",
-                iosClientId: IOS_CLIENT_ID,
+                iosClientId: constant.IOS_CLIENT_ID,
                 scopes: ["profile", "email"]
             });
 
