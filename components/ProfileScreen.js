@@ -117,6 +117,7 @@ class ProfileScreen extends Component {
 const LoginPage = props => {
     return (
         <View>
+            <Text>Dole Digital Wallet</Text>
             <Text style={styles.header}>Sign In With Google</Text>
             <Button
                 title="Sign in with Google"
